@@ -1,6 +1,8 @@
+import type { StudyRecord, DailyStudyData, SubjectType } from '@/types';
 import useMap from "./useMap"
-export function storageToday(data: any): void {
-    let array = JSON.parse(localStorage.getItem('todayStudyData') as string)
+
+export function storageToday(data: StudyRecord): void {
+    let array: StudyRecord[] = JSON.parse(localStorage.getItem('todayStudyData') as string)
     let flag: boolean = false
     for (let i in array){
         if (array[i].name == data.name){
@@ -15,9 +17,10 @@ export function storageToday(data: any): void {
     localStorage.setItem('todayStudyData',JSON.stringify(array))
 }
 
-export function storageList(data: any): void {
-    let todayData = JSON.parse(localStorage.getItem('totalStudyData') as string)
-    todayData[0].totalTime+=parseFloat(data.value.toFixed(2))
-    todayData[0].data[useMap(data.name)]+=parseFloat(data.value.toFixed(2))
+export function storageList(data: StudyRecord): void {
+    let todayData: DailyStudyData[] = JSON.parse(localStorage.getItem('totalStudyData') as string)
+    const subjectKey = useMap(data.name) as SubjectType
+    todayData[0].totalTime += parseFloat(data.value.toFixed(2))
+    todayData[0].data[subjectKey] += parseFloat(data.value.toFixed(2))
     localStorage.setItem('totalStudyData',JSON.stringify(todayData))
 }

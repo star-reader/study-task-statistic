@@ -73,6 +73,7 @@ onMounted(()=>{
     position: relative;
     width: 100%;
     height: 400px;
+    border-radius: 8px;
 }
 .action-button{
     position: relative;

@@ -40,15 +40,37 @@ onMounted(()=>{
 <style lang='less' scoped>
 .list-border{
     position: relative;
-    height: 400px;
+    min-height: 400px;
+    
     .title{
         color: #303133;
         font-size: 20px;
-        font-weight: bold;
-        margin: 5px 0;
+        font-weight: 600;
+        margin: 0 0 16px 0;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #f0f0f0;
     }
+    
+    :deep(.el-progress) {
+        margin-bottom: 16px;
+        
+        .el-progress-bar__outer {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .el-progress-bar__inner {
+            border-radius: 8px;
+        }
+    }
+    
     .with-test-button{
-        font-size: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        
+        strong {
+            color: #f56c6c;
+        }
     }
 }
 </style>

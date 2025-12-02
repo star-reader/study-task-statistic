@@ -19,7 +19,7 @@ function openDrawer(){
 </script>
 
 <style lang='less' scoped>
-@nav-bar-height:50px;
+@nav-bar-height: 60px;
 .navbar{
     position: relative;
     left: 0;
@@ -28,15 +28,25 @@ function openDrawer(){
     height: @nav-bar-height;
     background-color: rgb(4,164,239);
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     display: flex;
     line-height: @nav-bar-height;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    
     .action-bar{
         position: relative;
-        padding: 0 20px;
+        padding: 0 24px;
         font-weight: bold;
-        font-size: 28px;
+        font-size: 26px;
         cursor: pointer;
+        
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+    
+    .main-nav-content {
+        font-weight: 600;
     }
 }
 </style>

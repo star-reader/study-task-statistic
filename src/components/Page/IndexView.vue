@@ -30,18 +30,47 @@ import DailyList from './SubComponents/DailyList.vue';
 .content-wrapper{
     display: flex;
     flex-wrap: wrap;
-    margin: 20px;
+    margin: 24px;
     justify-content: center;
     overflow: hidden;
+    gap: 20px;
+    
     .card-item{
         position: relative;
-        width: 40%;
-        margin: 10px 20px;
+        width: calc(50% - 40px);
+        min-width: 400px;
+        border-radius: 16px;
+        border: 1px solid #e8e8e8;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        
+        :deep(.el-card__body) {
+            padding: 24px;
+        }
     }
 }
-@media only screen and (max-width: 1000px){
-    .card-item{
-        width: 100% !important;
+
+@media only screen and (max-width: 1200px){
+    .content-wrapper{
+        .card-item{
+            width: calc(100% - 40px);
+            min-width: unset;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .content-wrapper{
+        margin: 16px;
+        gap: 16px;
+        
+        .card-item{
+            width: 100%;
+            border-radius: 12px;
+            
+            :deep(.el-card__body) {
+                padding: 16px;
+            }
+        }
     }
 }
 </style>
